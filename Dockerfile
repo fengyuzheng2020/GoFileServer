@@ -18,8 +18,7 @@ ENV PORT=8080
 ENV UPLOAD_DIR=/app/uploads
 
 # 运行应用程序，接受环境变量设置端口和上传目录
-# 使用 exec 格式以支持变量替换
-CMD ["./main", "-port", "${PORT}", "-upload-dir", "${UPLOAD_DIR}"]
+CMD ["sh", "-c", "./main -port $PORT -upload-dir $UPLOAD_DIR"]
 
 
 # docker build -t go-file-server .
