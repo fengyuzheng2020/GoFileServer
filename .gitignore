@@ -1,0 +1,68 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Golang artifacts
+*.log
+*.lof
+*.logf
+*.logh
+*.logt
+*.logu
+*.logv
+
+# Go generated files
+*.pb.go
+*.pb.gw.go
+*.swagger.json
+*_string.go
+*_enums.go
+*_grpc.pb.go
+*_grpc.pb.gw.go
+*.generated.go
+
+# End of https://www.toptal.com/developers/gitignore/api/go
+
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.so
+*.so.[0-9]
+*.dylib
+
+# Folders
+_test_data/
+test_results/
+
+# Go test cache
+gotest-cache/
+
+# The following are files that might appear in the root of a volume mounted in from the host
+Dockerfile
+docker-compose.yml
+
+# The /build folder, where go build puts compiled binaries
+build/
+
+# The /bin folder, where go install puts compiled binaries
+bin/
+
+# .air file to keep track of which version of the air binary you have in your docker container
+.air
+
+# Application binary
+{{.ProjectName}}
+
+# Briefcase lockfile
+*.lock
