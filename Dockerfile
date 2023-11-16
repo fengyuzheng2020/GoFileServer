@@ -1,5 +1,5 @@
 # 使用官方的Go镜像作为基础镜像
-FROM golang:latest
+FROM golang:1.20
 
 # 设置工作目录
 WORKDIR /app
@@ -21,4 +21,4 @@ ENV UPLOAD_DIR=/app/uploads
 CMD ["./main", "-port=$PORT", "-upload-dir=$UPLOAD_DIR"]
 
 # docker build -t go-file-server .
-# docker run -p 8081:8081 -e PORT=8081 -e UPLOAD_DIR=/path/to/custom/uploads go-file-server
+# docker run -p 8081:8080 -e UPLOAD_DIR=/path/to/custom/uploads go-file-server

@@ -86,10 +86,16 @@ func downloadHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		defer file.Close()
 
+		// 获取文件信息
+		fileInfo, err := file.Stat()
+		if err != nil {
+			http.Error(w, "Failed to get file information", http.StatusInternalServerError)
+			return
+		}
 		// 设置响应头，告诉浏览器这是一个文件下载
 		w.Header().Set("Content-Disposition", "attachment; filename="+fileName)
 		w.Header().Set("Content-Type", "application/octet-stream")
-		w.Header().Set("Content-Length", fmt.Sprint(fileStat.Size()))
+		w.Header().Set("Content-Length", fmt.Sprint(fileInfo.Size()))
 
 		// 将文件内容拷贝到响应体
 		_, err = io.Copy(w, file)
