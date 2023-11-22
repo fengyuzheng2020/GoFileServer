@@ -48,7 +48,11 @@ func uploadHandler(w http.ResponseWriter, r *http.Request) {
 
 		// 创建上传目录
 		if _, err := os.Stat(config.UploadDir); os.IsNotExist(err) {
-			os.Mkdir(config.UploadDir, os.ModeDir)
+			err = os.Mkdir(config.UploadDir, os.ModeDir)
+			if err != nil {
+				fmt.Println("Error creating the upload directory:", err)
+				return
+			}
 		}
 
 		// 创建上传文件
