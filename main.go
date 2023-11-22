@@ -53,6 +53,7 @@ func uploadHandler(w http.ResponseWriter, r *http.Request) {
 
 		// 创建上传文件
 		filePath := filepath.Join(config.UploadDir, handler.Filename)
+		fmt.Println("File:", filePath)
 		dst, err := os.Create(filePath)
 		if err != nil {
 			fmt.Println("Error creating the file:", err)
